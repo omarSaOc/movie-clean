@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.oaso.core">
+
+    <application>
+        <activity
+            android:name=".MovieActivity"
+            android:exported="false"
+            android:label="@string/title_activity_movie"
+            android:theme="@style/Theme.Movieclean.NoActionBar" />
+    </application>
+
+</manifest>
