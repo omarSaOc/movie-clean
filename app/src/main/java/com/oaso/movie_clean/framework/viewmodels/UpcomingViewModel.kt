@@ -17,11 +17,16 @@ class UpcomingViewModel @Inject constructor(
 ) : ViewModel() {
 
     private var _movies = MutableLiveData<List<Movie>>()
-    private val movie :LiveData<List<Movie>> get() = _movies
+    val movie :LiveData<List<Movie>> get() = _movies
+
+    private var _loading = MutableLiveData<Boolean>()
+    val loading : LiveData<Boolean> get() = _loading
 
     fun getUpcoming() {
         viewModelScope.launch {
+            _loading.postValue(true)
             val movieList = useCase.upcomingMovie.invoke(BuildConfig.API_KEY)
+            _loading.postValue(false)
             _movies.postValue(movieList)
         }
     }

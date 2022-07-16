@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.oaso.movie_clean">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:name=".BaseApplication"
@@ -13,8 +13,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Movieclean">
         <activity
-            android:name=".presentation.MainActivity"
-            android:exported="true">
+            android:name=".presentation.MovieActivity"
+            android:exported="true"
+            android:label="@string/title_activity_movie" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -22,5 +23,4 @@
             </intent-filter>
         </activity>
     </application>
-
 </manifest>
