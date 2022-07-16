@@ -12,9 +12,9 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class NowPlayingViewModel @Inject constructor(
+class PopularViewModel @Inject constructor(
     private val useCase: UseCase
-    ) : ViewModel() {
+) : ViewModel() {
 
     private var _movies = MutableLiveData<List<Movie>>()
     val movie: LiveData<List<Movie>> get() = _movies
@@ -22,10 +22,10 @@ class NowPlayingViewModel @Inject constructor(
     private var _loading = MutableLiveData<Boolean>()
     val loading: LiveData<Boolean> get() = _loading
 
-    fun getNowPlaying() {
+    fun getPopularMovies() {
         viewModelScope.launch {
             _loading.postValue(true)
-            val movieList = useCase.nowPlayingMovie.invoke(BuildConfig.API_KEY)
+            val movieList = useCase.popularMovie.invoke(BuildConfig.API_KEY)
             _loading.postValue(false)
             _movies.postValue(movieList)
         }

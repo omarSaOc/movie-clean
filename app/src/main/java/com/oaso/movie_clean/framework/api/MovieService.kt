@@ -1,7 +1,9 @@
 package com.oaso.movie_clean.framework.api
 
+import com.oaso.core.usecase.PopularMovie
 import com.oaso.movie_clean.BuildConfig
 import com.oaso.movie_clean.framework.api.model.NowPlayingResult
+import com.oaso.movie_clean.framework.api.model.PopularResult
 import com.oaso.movie_clean.framework.api.model.UpcomingResult
 import retrofit2.http.GET
 import retrofit2.http.Query
@@ -17,5 +19,10 @@ interface MovieService {
     suspend fun nowPlayingMovies(
         @Query("api_key") apiKey: String = BuildConfig.API_KEY
     ) : NowPlayingResult
+
+    @GET("movie/popular")
+    suspend fun popularMovies(
+        @Query("api_key") apiKey: String = BuildConfig.API_KEY
+    ) : PopularResult
 
 }
