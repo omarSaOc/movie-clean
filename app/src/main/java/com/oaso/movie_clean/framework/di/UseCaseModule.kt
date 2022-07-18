@@ -1,6 +1,7 @@
 package com.oaso.movie_clean.framework.di
 
 import com.oaso.core.repository.MovieRepository
+import com.oaso.core.usecase.GetVideos
 import com.oaso.core.usecase.NowPlayingMovie
 import com.oaso.core.usecase.PopularMovie
 import com.oaso.core.usecase.UpcomingMovie
@@ -18,6 +19,7 @@ class UseCaseModule() {
     fun getUseCase(repository: MovieRepository) = UseCase(
         UpcomingMovie(repository),
         NowPlayingMovie(repository),
-        PopularMovie(repository)
+        PopularMovie(repository),
+        GetVideos(repository)
     )
 }

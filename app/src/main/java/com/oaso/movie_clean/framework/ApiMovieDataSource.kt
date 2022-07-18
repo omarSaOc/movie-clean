@@ -1,6 +1,7 @@
 package com.oaso.movie_clean.framework
 
 import com.oaso.core.data.Movie
+import com.oaso.core.data.Video
 import com.oaso.core.repository.MovieDataSource
 import com.oaso.movie_clean.framework.api.MovieService
 import javax.inject.Inject
@@ -16,4 +17,11 @@ class ApiMovieDataSource @Inject constructor(private val movieService: MovieServ
 
     override suspend fun popular(apiKey: String): List<Movie> =
         movieService.popularMovies(apiKey).results.map { it.toMovie() }
+
+    override suspend fun videos(
+        url: String,
+        apiKey: String
+    ): List<Video> =
+        movieService.getVideos(url, apiKey).results.map { it.toVideo() }
+
 }

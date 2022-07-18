@@ -1,4 +1,4 @@
-package com.oaso.movie_clean.framework.api.model
+package com.oaso.movie_clean.framework.api.model.now_playing
 
 import com.oaso.core.data.Movie
 

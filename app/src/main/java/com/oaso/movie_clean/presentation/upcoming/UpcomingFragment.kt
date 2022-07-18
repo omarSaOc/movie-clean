@@ -6,9 +6,11 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.Navigation
 import com.oaso.core.data.Movie
 import com.oaso.movie_clean.databinding.FragmentUpcomingBinding
 import com.oaso.movie_clean.framework.viewmodels.UpcomingViewModel
+import com.oaso.movie_clean.presentation.popular.PopularFragmentDirections
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -61,6 +63,8 @@ class UpcomingFragment : Fragment() {
     }
 
     private fun navigateDetailMovie(movie: Movie) {
-
+        val action =
+            UpcomingFragmentDirections.actionNavigationUpcomingToNavigationDetailMovie(movie)
+        Navigation.findNavController(binding.rvMovies).navigate(action)
     }
 }

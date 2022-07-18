@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.Navigation
 import com.oaso.core.data.Movie
 import com.oaso.movie_clean.databinding.FragmentPopularBinding
 import com.oaso.movie_clean.framework.viewmodels.PopularViewModel
@@ -61,6 +62,7 @@ class PopularFragment : Fragment() {
     }
 
     private fun navigateDetailMovie(movie: Movie) {
-
+        val action = PopularFragmentDirections.actionNavigationPopularToNavigationDetailMovie(movie)
+        Navigation.findNavController(binding.rvMovies).navigate(action)
     }
 }
